@@ -4,21 +4,21 @@ module.exports = app => {
   app.get(
     '/auth/google',
     passport.authenticate('google', {
-      scope: ['profile', 'email'],
-    }),
+      scope: ['profile', 'email']
+    })
   );
 
   app.get(
     '/auth/google/callback',
     passport.authenticate('google'),
-    (req, res) => {
-      res.redirect('/searchAnime');
-    },
+    (request, response) => {
+      response.redirect('/searchAnime');
+    }
   );
 
   app.get('/api/logout', (request, response) => {
     request.logout();
-    response.send(request.user);
+    response.redirect('/');
   });
 
   app.get('/api/current_user', (request, response) => {

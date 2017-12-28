@@ -19,7 +19,7 @@ class Header extends Component {
       <nav>
         <div className="nav-wrapper">
           <Link
-            to={this.props.auth ? '/dashboard' : '/'}
+            to={this.props.auth ? '/searchAnime' : '/'}
             className="left brand-logo">
             Anify
           </Link>
@@ -32,10 +32,6 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    auth: state.auth,
-  };
-};
+const mapStateToProps = state => ({ auth: state.auth });
 
 export default connect(mapStateToProps)(Header);

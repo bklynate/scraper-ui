@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './../components/PrivateRoute';
 import * as actions from './../actions';
 
 import Header from './Header';
-const Dashboard = () => <h2>Dashboard</h2>;
+import Dashboard from './Dashboard';
+
 const Landing = () => <h2>Landing</h2>;
 const NotFound404 = () => <h2>PAGE NOT FOUND</h2>;
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchUser()
+    this.props.fetchUser();
   }
 
   render() {
@@ -21,7 +23,11 @@ class App extends Component {
             <Header />
             <Switch>
               <Route exact path="/" component={Landing} />
-              <Route exact path="/searchAnime" component={Dashboard} />
+              <PrivateRoute
+                exact
+                path="/searchAnime"
+                component={Dashboard}
+              />
               <Route exact path="*" component={NotFound404} />
             </Switch>
           </div>
@@ -31,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App)
+export default connect(null, actions)(App);
