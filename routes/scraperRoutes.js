@@ -1,4 +1,3 @@
-
 const Aniscrape = require('aniscrape'); // Check source on GitHub for more info.
 const animebam = require('aniscrape-animebam');
 const xray = require('x-ray')();
