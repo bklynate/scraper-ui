@@ -4,7 +4,13 @@ import Iframe from 'react-iframe';
 
 const VideoPlayer = props => (
   <div>
-    <Iframe url={props.animeName.info || ''} />
+    <Iframe
+      url={
+        props.animeName.info
+          ? props.animeName.info.replace('http', 'https')
+          : ''
+      }
+    />
   </div>
 );
 
