@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Form from './Form';
+import VideoPlayer from './VideoPlayer';
 
-export default class Dashboard extends Component {
-  render() {
-    return (
-      <div>
-        <h2>This is the DashboardPage</h2>
-      </div>
-    )
-  }
-}
+const Dashboard = () => (
+  <div>
+    <h2>This is the DashboardPage</h2>
+    <Form />
+    <VideoPlayer />
+  </div>
+);
+
+export default Dashboard;
