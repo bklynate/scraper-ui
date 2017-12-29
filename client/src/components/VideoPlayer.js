@@ -7,7 +7,7 @@ const VideoPlayer = props => (
     <Iframe
       url={
         props.animeName.info
-          ? props.animeName.info.replace('http', 'https')
+          ? props.animeName.info
           : ''
       }
     />
