@@ -8,6 +8,7 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 
 const Landing = () => <h2>Landing</h2>;
+const AnimePage = () => <h2>AnimePage</h2>
 const NotFound404 = () => <h2>PAGE NOT FOUND</h2>;
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
                 path="/searchAnime"
                 component={Dashboard}
               />
+              <Route path="/view/:id" component={AnimePage} />
               <Route exact path="*" component={NotFound404} />
             </Switch>
           </div>

@@ -9,16 +9,11 @@ module.exports = app => {
     const { animeName } = request.body;
     scraper.use(animebam).then(() => {
       scraper.search(animeName, 'animebam').then(results => {
-        scraper.fetchSeries(results[0]).then(anime => {
-          const { url } = anime.episodes[0];
-          xray(url, 'iframe.embed-responsive-item@src')((error, info) => {
-            const payload = {
-              animeName,
-              info
-            };
-            response.send(payload);
-          });
-        });
+        if (results.length < 1) return;
+        if (results.length > 1) {
+          const animeList = results.map(result => (result))
+          response.send(animeList)
+        }
       });
     });
   });

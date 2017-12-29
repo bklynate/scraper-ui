@@ -4,5 +4,5 @@ import animeReducer from './animeReducer';
 
 export default combineReducers({
   auth: authReducer,
-  animeName: animeReducer,
+  anime: animeReducer,
 });

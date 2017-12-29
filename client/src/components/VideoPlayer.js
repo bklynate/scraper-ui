@@ -6,13 +6,13 @@ const VideoPlayer = props => (
   <div>
     <Iframe
       url={
-        props.animeName.info
-          ? props.animeName.info
+        props.anime.info
+          ? props.anime.info
           : ''
       }
     />
   </div>
 );
 
-const mapStateToProps = state => ({ animeName: state.animeName });
+const mapStateToProps = state => ({ anime: state.anime });
 export default connect(mapStateToProps)(VideoPlayer);
