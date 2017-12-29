@@ -8,5 +8,6 @@ export const fetchUser = () => async dispatch => {
 
 export const fetchAnime = animeName => async dispatch => {
   const response = await axios.post('/api/scrapeAnime', { animeName });
+  console.log('this is fetchAnime', response);
   dispatch({ type: FETCH_ANIME, payload: response.data });
 };

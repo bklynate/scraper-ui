@@ -4,6 +4,7 @@ import Iframe from 'react-iframe';
 
 const VideoPlayer = props => (
   <div>
+    { console.log(props.animeName.info) }
     <Iframe
       url={
         props.animeName.info
