@@ -1,10 +1,10 @@
 import React from 'react';
 import Iframe from 'react-iframe';
 
-const VideoPlayer = props => (
+const VideoPlayer = ({ videoSrc }) => (
   <div>
     <Iframe
-      url={''}
+      url={ videoSrc || ''}
     />
   </div>
 );

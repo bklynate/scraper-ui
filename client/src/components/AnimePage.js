@@ -6,26 +6,44 @@ import * as actions from './../actions';
 
 // boku no hero academia
 class AnimePage extends React.Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.getVideoSrc = this.getVideoSrc.bind(this);
+    this.state = {
+      videoSrc: '',
+    };
+  }
+  async componentDidMount() {
     if (this.props.anime[this.props.match.params.id] === undefined) {
-      return <Redirect to="/searchAnime" />
+      return <Redirect to="/searchAnime" />;
     }
-    this.props.fetchAnimeEpisode(
+    await this.props.fetchAnimeEpisode(
       this.props.anime[this.props.match.params.id],
     );
   }
-
+  getVideoSrc(e) {
+    const videoSrc = e.currentTarget.textContent;
+    this.setState(() => ({ videoSrc }));
+  }
   render() {
+    let keyCount = 0;
     return (
       <div>
         {this.props.anime[this.props.match.params.id] === undefined ? (
           <Redirect to="/searchAnime" />
         ) : (
-          <h1>
-            {this.props.anime[this.props.match.params.id].seriesName}
-          </h1>
+          <h1>{this.props.anime[this.props.match.params.id].seriesName}</h1>
         )}
-        <VideoPlayer />
+        <ul>
+          {this.props.episodeList ? (
+            this.props.episodeList.map(item => {
+              return <li key={keyCount += 1} onClick={this.getVideoSrc}>{item}</li>;
+            })
+          ) : (
+            <li>Please try searching another anime...</li>
+          )}
+        </ul>
+        <VideoPlayer videoSrc={this.state.videoSrc} />
       </div>
     );
   }
@@ -33,6 +51,7 @@ class AnimePage extends React.Component {
 const mapStateToProps = state => {
   return {
     anime: state.anime,
+    episodeList: state.episodeList,
   };
 };
 
