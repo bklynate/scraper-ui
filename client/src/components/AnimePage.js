@@ -5,6 +5,9 @@ import VideoPlayer from './VideoPlayer';
 import * as actions from './../actions';
 
 // boku no hero academia
+const styles = {
+  cursor: 'pointer'
+}
 class AnimePage extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +25,7 @@ class AnimePage extends React.Component {
     );
   }
   getVideoSrc(e) {
-    const videoSrc = e.currentTarget.textContent;
+    const videoSrc = e.currentTarget.attributes[0].textContent
     this.setState(() => ({ videoSrc }));
   }
   render() {
@@ -37,7 +40,11 @@ class AnimePage extends React.Component {
         <ul>
           {this.props.episodeList ? (
             this.props.episodeList.map(item => {
-              return <li key={keyCount += 1} onClick={this.getVideoSrc}>{item}</li>;
+              return (
+                <div key={keyCount += 1} style={styles} className="chip">
+                  <a value={item} onClick={this.getVideoSrc}>{`Episode ${keyCount}`}</a>
+                </div>
+              );
             })
           ) : (
             <li>Please try searching another anime...</li>
