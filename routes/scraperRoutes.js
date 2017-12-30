@@ -26,14 +26,17 @@ module.exports = app => {
           resolved.push(url);
           return resolved;
         }, []);
-      const embeddedUrls = sortedEpisodeUrls.map(url => new Promise((resolve) => {
-          xray(
-            url,
-            'iframe.embed-responsive-item@src'
-          )((error, embeddedUrl) => {
-            resolve(embeddedUrl);
-          });
-        }));
+      const embeddedUrls = sortedEpisodeUrls.map(
+        url =>
+          new Promise(resolve => {
+            xray(
+              url,
+              'iframe.embed-responsive-item@src'
+            )((error, embeddedUrl) => {
+              resolve(embeddedUrl);
+            });
+          })
+      );
       Promise.all(embeddedUrls).then(resolvedEmbeddedUrls => {
         response.send(resolvedEmbeddedUrls);
       });
