@@ -6,8 +6,8 @@ import * as actions from './../actions';
 
 // boku no hero academia
 const styles = {
-  cursor: 'pointer'
-}
+  cursor: 'pointer',
+};
 class AnimePage extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +16,7 @@ class AnimePage extends React.Component {
       videoSrc: '',
     };
   }
+
   async componentDidMount() {
     if (this.props.anime[this.props.match.params.id] === undefined) {
       return <Redirect to="/searchAnime" />;
@@ -24,10 +25,12 @@ class AnimePage extends React.Component {
       this.props.anime[this.props.match.params.id],
     );
   }
+
   getVideoSrc(e) {
-    const videoSrc = e.currentTarget.attributes[0].textContent
+    const videoSrc = e.currentTarget.attributes[0].textContent;
     this.setState(() => ({ videoSrc }));
   }
+
   render() {
     let keyCount = 0;
     return (
@@ -41,8 +44,10 @@ class AnimePage extends React.Component {
           {this.props.episodeList ? (
             this.props.episodeList.map(item => {
               return (
-                <div key={keyCount += 1} style={styles} className="chip">
-                  <a value={item} onClick={this.getVideoSrc}>{`Episode ${keyCount}`}</a>
+                <div key={(keyCount += 1)} style={styles} className="chip">
+                  <a
+                    value={item}
+                    onClick={this.getVideoSrc}>{`Episode ${keyCount}`}</a>
                 </div>
               );
             })
@@ -55,6 +60,7 @@ class AnimePage extends React.Component {
     );
   }
 }
+
 const mapStateToProps = state => {
   return {
     anime: state.anime,
