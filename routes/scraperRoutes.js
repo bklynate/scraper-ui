@@ -10,24 +10,13 @@ module.exports = app => {
     scraper.use(animebam).then(() => {
       scraper.search(animeName, 'animebam').then(results => {
         if (results.length < 1) return;
-        if (results.length > 1) {
-          console.log(results[0]);
-          const animeList = results.map(result => (result))
-          response.send(animeList)
-        }
+        if (results.length > 1) return response.send(results); // eslint-disable-line
       });
     });
   });
-  app.post('/api/scrapeAnimeEpisode', (request, response) => {
-    const { animeName } = request.body;
-    scraper.use(animebam).then(() => {
-      scraper.search(animeName, 'animebam').then(results => {
-        if (results.length < 1) return;
-        if (results.length > 1) {
-          const animeList = results.map(result => (result))
-          response.send(animeList)
-        }
-      });
-    });
+  app.post('/api/scrapeAnimeEpisode', async (request, response) => {
+    const { animeEpisode } = request.body;
+    // const scrapedEpisode = await scraper.fetchSeries(animeEpisode)
+    console.log('this is the scrapedEpi', animeEpisode);
   });
 };

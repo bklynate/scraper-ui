@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, FETCH_ANIME, FETCH_ANIME_EPISODE } from './types';
+import { FETCH_USER, FETCH_ANIME_LIST, FETCH_ANIME_EPISODE } from './types';
 
 export const fetchUser = () => async dispatch => {
   const response = await axios.get('/api/current_user');
@@ -8,10 +8,10 @@ export const fetchUser = () => async dispatch => {
 
 export const fetchAnime = animeName => async dispatch => {
   const response = await axios.post('/api/scrapeAnime', { animeName });
-  dispatch({ type: FETCH_ANIME, payload: response.data });
+  dispatch({ type: FETCH_ANIME_LIST, payload: response.data });
 };
 
-export const fetchAnimeEpisode = animeName => async dispatch => {
-  const response = await axios.post('/api/scrapeAnimeEpisode', { animeName });
+export const fetchAnimeEpisode = animeEpisode => async dispatch => {
+  const response = await axios.post('/api/scrapeAnimeEpisode', { animeEpisode });
   dispatch({ type: FETCH_ANIME_EPISODE, payload: response.data });
 };

@@ -4,7 +4,17 @@ import { Redirect } from 'react-router-dom';
 import VideoPlayer from './VideoPlayer';
 import * as actions from './../actions';
 
+// boku no hero academia
 class AnimePage extends React.Component {
+  componentWillMount() {
+    if (this.props.anime[this.props.match.params.id] === undefined) {
+      return <Redirect to="/searchAnime" />
+    }
+    this.props.fetchAnimeEpisode(
+      this.props.anime[this.props.match.params.id],
+    );
+  }
+
   render() {
     return (
       <div>
@@ -13,7 +23,6 @@ class AnimePage extends React.Component {
         ) : (
           <h1>
             {this.props.anime[this.props.match.params.id].seriesName}
-            {console.log(this.props.anime[this.props.match.params.id].seriesName)}
           </h1>
         )}
         <VideoPlayer />
