@@ -11,6 +11,7 @@ module.exports = app => {
       scraper.search(animeName, 'animebam').then(results => {
         if (results.length < 1) return;
         if (results.length > 1) return response.send(results); // eslint-disable-line
+        return response.send(results); // eslint-disable-line
       });
     });
   });
