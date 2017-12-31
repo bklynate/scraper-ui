@@ -22,12 +22,14 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <Switch>
-              <Route exact path="/" component={Landing} />
-              <PrivateRoute exact path="/searchAnime" component={Dashboard} />
-              <Route path="/view/:id" component={AnimePage} />
-              <Route exact path="*" component={NotFound404} />
-            </Switch>
+              <div className="container">
+                <Switch>
+                  <Route exact path="/" component={Landing} />
+                  <PrivateRoute exact path="/searchAnime" component={Dashboard} />
+                  <Route path="/view/:id" component={AnimePage} />
+                  <Route exact path="*" component={NotFound404} />
+                </Switch>
+              </div>
           </div>
         </BrowserRouter>
       </div>
