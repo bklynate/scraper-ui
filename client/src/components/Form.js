@@ -21,7 +21,7 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form className="animeForm" onSubmit={this.onSubmit}>
           <input
             type="text"
             autoFocus

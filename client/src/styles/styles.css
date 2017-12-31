@@ -16,4 +16,16 @@ button:disabled {
 
 h1 {
   color: pink;
-  font-size: 55px; }
+  font-size: 55px;
+  text-align: center; }
+
+.chip {
+  cursor: pointer; }
+
+.animeForm input[type=text] {
+  font-size: 1.6rem;
+  border-bottom-color: red !important; }
+
+.no-items {
+  font-size: 1.6rem;
+  text-align: center; }

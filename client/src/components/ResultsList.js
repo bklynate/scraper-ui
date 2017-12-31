@@ -16,7 +16,7 @@ class ResultsList extends React.Component {
             />
           ))
         ) : (
-          <p>There are currently 0 search results.</p>
+          <p className="no-items">There are currently 0 search results.</p>
         )}
       </div>
     );

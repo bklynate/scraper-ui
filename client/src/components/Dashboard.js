@@ -5,7 +5,7 @@ import ResultsList from './ResultsList';
 
 const Dashboard = () => (
   <div>
-    <h2 className="testing">This is the DashboardPage</h2>
+    <h2>Search Anime by their Japanese moniker</h2>
     <ResultsList />
     <Form />
   </div>
