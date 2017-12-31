@@ -3,7 +3,7 @@ import React from 'react';
 import Form from './Form';
 import ResultsList from './ResultsList';
 
-const Dashboard = () => (
+const SearchPage = () => (
   <div>
     <h2>Search Anime by their Japanese moniker</h2>
     <ResultsList />
@@ -11,4 +11,4 @@ const Dashboard = () => (
   </div>
 );
 
-export default Dashboard;
+export default SearchPage;

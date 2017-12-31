@@ -17,13 +17,13 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div className="nav-wrapper">
+        <div className="header nav-wrapper">
           <Link
             to={this.props.auth ? '/searchAnime' : '/'}
             className="left brand-logo">
             Anify
           </Link>
-          <ul className="right">
+          <ul className="right header-right">
             <li>{this.renderContent()}</li>
           </ul>
         </div>

@@ -11,8 +11,11 @@ button {
 button:disabled {
   cursor: default; }
 
-.is-active {
-  font-weight: bold; }
+.brand-logo {
+  margin-left: 5%; }
+
+.header-right {
+  margin-right: 5%; }
 
 h1 {
   color: pink;

@@ -5,10 +5,10 @@ import PrivateRoute from './../components/PrivateRoute';
 import * as actions from './../actions';
 
 import Header from './Header';
-import Dashboard from './Dashboard';
+import SearchPage from './SearchPage';
 import AnimePage from './AnimePage';
+import LandingPage from './LandingPage'
 
-const Landing = () => <h2>Landing</h2>;
 const NotFound404 = () => <h2>PAGE NOT FOUND</h2>;
 
 class App extends Component {
@@ -24,8 +24,8 @@ class App extends Component {
             <Header />
               <div className="container">
                 <Switch>
-                  <Route exact path="/" component={Landing} />
-                  <PrivateRoute exact path="/searchAnime" component={Dashboard} />
+                  <Route exact path="/" component={LandingPage} />
+                  <PrivateRoute exact path="/searchAnime" component={SearchPage} />
                   <Route path="/view/:id" component={AnimePage} />
                   <Route exact path="*" component={NotFound404} />
                 </Switch>
