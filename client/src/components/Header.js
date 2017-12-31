@@ -24,7 +24,7 @@ class Header extends Component {
             Anify
           </Link>
           <ul className="right header-right">
-            <li>{this.renderContent()}</li>
+            <li className="header-right-content">{this.renderContent()}</li>
           </ul>
         </div>
       </nav>

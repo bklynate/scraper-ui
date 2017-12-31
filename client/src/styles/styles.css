@@ -17,6 +17,9 @@ button:disabled {
 .header-right {
   margin-right: 5%; }
 
+.header-right > li > a {
+  font-size: 1.6rem; }
+
 h1 {
   color: pink;
   font-size: 55px;

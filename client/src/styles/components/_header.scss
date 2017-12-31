@@ -5,3 +5,7 @@
 .header-right {
   margin-right: 5%;
 }
+
+.header-right > li > a {
+  font-size: $medium-sized;
+}
