@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import VideoPlayer from './VideoPlayer';
 import * as actions from './../actions';
 
-// boku no hero academia
 class AnimePage extends React.Component {
   constructor(props) {
     super(props);
