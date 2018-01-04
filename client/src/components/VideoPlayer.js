@@ -7,6 +7,7 @@ const VideoPlayer = ({ videoSrc }) => (
       width="100%"
       height="100%"
       url={ videoSrc || ''}
+      allowFullScreen
     />
   </div>
 );

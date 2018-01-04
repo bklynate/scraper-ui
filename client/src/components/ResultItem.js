@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ResultItem = ({ id, seriesUrl, seriesName }) => (
+const ResultItem = ({ id, seriesName }) => (
   <div>
     <Link to={`/view/${id}`}>
       <h4>{seriesName}</h4>
