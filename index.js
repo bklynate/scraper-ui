@@ -1,17 +1,17 @@
-const express = require('express');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cookieSession from 'cookie-session';
+import passport from 'passport';
+import mongoose from 'mongoose';
+
+import authRoutes from './routes/authRoutes';
+import scraperRoutes from './routes/scraperRoutes';
+import keys from './config/keys';
 
 const app = express();
-const bodyParser = require('body-parser');
-
 const PORT = process.env.PORT || 5000;
-const authRoutes = require('./routes/authRoutes');
-const scraperRoutes = require('./routes/scraperRoutes');
-const mongoose = require('mongoose');
-
 const mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/anify_db';
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const keys = require('./config/keys');
+
 require('./models/User');
 require('./services/passport');
 
