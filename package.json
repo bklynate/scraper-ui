@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "8.4.0",
-    "npm": "5.3.0"
+    "node": "8.11.3",
+    "npm": "5.6.0"
   },
   "scripts": {
-    "server": "nodemon index.js --exec babel-node",
-    "build": "npm run clean && npm run build-babel",
     "start": "npm run build && node ./build/index.js",
+    "server": "nodemon index.js --exec babel-node",
     "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./index.js",
+    "build-babel": "babel -d ./build ./index.js -s",
+    "build": "npm run clean && npm run build-babel",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
