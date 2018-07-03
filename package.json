@@ -8,7 +8,7 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "start": "npm run build && node ./build/index.js",
+    "start": "npm run build && node ./build",
     "server": "nodemon index.js --exec babel-node",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./index.js -s",
@@ -22,6 +22,7 @@
   "dependencies": {
     "aniscrape": "^0.1.1",
     "aniscrape-animebam-https": "^0.1.4",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-react": "6.24.1",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.0",
@@ -35,13 +36,13 @@
     "x-ray": "^2.3.2"
   },
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.0",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.25.0",
     "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "^16.1.0",
