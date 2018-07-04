@@ -10,7 +10,7 @@
   "scripts": {
     "start": "npm run build && node server",
     "server": "nodemon index.js --exec babel-node",
-    "clean": "rm -rf build && mkdir build",
+    "clean": "rm -rf server.js",
     "build-babel": "babel index.js --out-file server.js",
     "build": "npm run clean && npm run build-babel",
     "client": "npm run start --prefix client",
