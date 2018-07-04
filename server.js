@@ -20,15 +20,15 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _authRoutes = require('./../routes/authRoutes');
+var _authRoutes = require('./routes/authRoutes');
 
 var _authRoutes2 = _interopRequireDefault(_authRoutes);
 
-var _scraperRoutes = require('./../routes/scraperRoutes');
+var _scraperRoutes = require('./routes/scraperRoutes');
 
 var _scraperRoutes2 = _interopRequireDefault(_scraperRoutes);
 
-var _keys = require('./../config/keys');
+var _keys = require('./config/keys');
 
 var _keys2 = _interopRequireDefault(_keys);
 
@@ -38,8 +38,8 @@ var app = (0, _express2.default)();
 var PORT = process.env.PORT || 5000;
 var mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/anify_db';
 
-require('./../models/User');
-require('./../services/passport');
+require('./models/User');
+require('./services/passport');
 
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use(_bodyParser2.default.json());
