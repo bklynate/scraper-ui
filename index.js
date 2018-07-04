@@ -4,16 +4,16 @@ import cookieSession from 'cookie-session';
 import passport from 'passport';
 import mongoose from 'mongoose';
 
-import authRoutes from './routes/authRoutes';
-import scraperRoutes from './routes/scraperRoutes';
-import keys from './config/keys';
+import authRoutes from './../routes/authRoutes';
+import scraperRoutes from './../routes/scraperRoutes';
+import keys from './../config/keys';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/anify_db';
 
-require('./models/User');
-require('./services/passport');
+require('./../models/User');
+require('./../services/passport');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

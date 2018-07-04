@@ -8,10 +8,10 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "start": "npm run build && node ./build",
+    "start": "npm run build && node server",
     "server": "nodemon index.js --exec babel-node",
     "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./index.js -s",
+    "build-babel": "babel index.js --out-file server.js",
     "build": "npm run clean && npm run build-babel",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
