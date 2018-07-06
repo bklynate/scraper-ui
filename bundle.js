@@ -79,17 +79,15 @@ module.exports = require("mongoose");
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
 // Keys.js
 if (process.env.NODE_ENV === "production") {
   // if the environment is production, load prod keys
-  module.exports = __webpack_require__(12);
+  module.exports = __webpack_require__(13); // eslint-disable-line
 } else {
   // if the environment is development, load dev keys
-  module.exports = __webpack_require__(13);
+  module.exports = __webpack_require__(14); // eslint-disable-line
 }
+
 
 /***/ }),
 /* 3 */
@@ -136,8 +134,8 @@ var app = (0, _express2.default)();
 var PORT = process.env.PORT || 5000;
 var mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/anify_db';
 
-__webpack_require__(14);
 __webpack_require__(15);
+__webpack_require__(16);
 
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use(_bodyParser2.default.json());
@@ -158,15 +156,15 @@ if (process.env.NODE_ENV === 'production') {
   // This below informs Express to serve up
   // the index.html file if it doesn't recognize
   // the provided routes
-  var path = __webpack_require__(17); // eslint-disable-line
+  var path = __webpack_require__(20); // eslint-disable-line
   app.get('*', function (request, response) {
     response.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
 
 app.listen(PORT, function () {
-  console.log('They came for us....out of the darkness..'); // eslint-disable-line
-});
+  return console.log('They came for us on port:' + PORT);
+}); // eslint-disable-line
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
@@ -222,9 +220,15 @@ module.exports = function (app) {
 "use strict";
 
 
-var Aniscrape = __webpack_require__(9); // Check source on GitHub for more info.
-var animebam = __webpack_require__(10);
-var xray = __webpack_require__(11)();
+var _promise = __webpack_require__(9);
+
+var _promise2 = _interopRequireDefault(_promise);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Aniscrape = __webpack_require__(10); // Check source on GitHub for more info.
+var animebam = __webpack_require__(11);
+var xray = __webpack_require__(12)();
 
 var scraper = new Aniscrape();
 
@@ -256,13 +260,13 @@ module.exports = function (app) {
         return resolved;
       }, []);
       var embeddedUrls = sortedEpisodeUrls.map(function (url) {
-        return new Promise(function (resolve) {
+        return new _promise2.default(function (resolve) {
           xray(url, 'iframe.embed-responsive-item@src')(function (error, embeddedUrl) {
             resolve(embeddedUrl);
           });
         });
       });
-      Promise.all(embeddedUrls).then(function (resolvedEmbeddedUrls) {
+      _promise2.default.all(embeddedUrls).then(function (resolvedEmbeddedUrls) {
         response.send(resolvedEmbeddedUrls);
       });
     });
@@ -273,26 +277,29 @@ module.exports = function (app) {
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("aniscrape");
+module.exports = require("babel-runtime/core-js/promise");
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports) {
 
-module.exports = require("aniscrape-animebam-https");
+module.exports = require("aniscrape");
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("x-ray");
+module.exports = require("aniscrape-animebam-https");
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
+module.exports = require("x-ray");
 
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
 
 // Prod.js
 module.exports = {
@@ -302,22 +309,23 @@ module.exports = {
   mongoURI: process.env.MONGODB_URI
 };
 
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// Dev.js
-module.exports = {
-  googleClientID: "913553730342-02p5ee75ilgfjjg2jatsjhjlton8ffci.apps.googleusercontent.com",
-  googleClientSecret: "wKGCmDWM6Z38fp_u64fzJW1h",
-  cookieKey: "AklmsdFJLMC123ldkdmfq22o3oFEFop7asm4vo7FEmefi6omak5ls54dqwLKMDPvvaasd"
-};
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports) {
+
+// Dev.js
+module.exports = {
+  googleClientID:
+    "913553730342-02p5ee75ilgfjjg2jatsjhjlton8ffci.apps.googleusercontent.com",
+  googleClientSecret: "wKGCmDWM6Z38fp_u64fzJW1h",
+  cookieKey:
+    "AklmsdFJLMC123ldkdmfq22o3oFEFop7asm4vo7FEmefi6omak5ls54dqwLKMDPvvaasd"
+};
+
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -334,16 +342,24 @@ var userSchema = new Schema({
 mongoose.model("users", userSchema);
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+var _regenerator = __webpack_require__(17);
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _asyncToGenerator2 = __webpack_require__(18);
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var passport = __webpack_require__(0);
-var GoogleStrategy = __webpack_require__(16).Strategy;
+var GoogleStrategy = __webpack_require__(19).Strategy;
 var clientKeys = __webpack_require__(2);
 var mongoose = __webpack_require__(1);
 var User = mongoose.model("users");
@@ -363,9 +379,9 @@ passport.use(new GoogleStrategy({
   callbackURL: "/auth/google/callback",
   proxy: true
 }, function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(accessToken, refreshToken, profile, done) {
+  var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(accessToken, refreshToken, profile, done) {
     var existingUser, newUser;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
+    return _regenerator2.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -405,13 +421,25 @@ passport.use(new GoogleStrategy({
 }()));
 
 /***/ }),
-/* 16 */
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/regenerator");
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/asyncToGenerator");
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = require("passport-google-oauth20");
 
 /***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");

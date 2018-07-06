@@ -42,6 +42,4 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(PORT, () => {
-  console.log('They came for us....out of the darkness..'); // eslint-disable-line
-});
+app.listen(PORT, () => console.log(`They came for us on port:${PORT}`)); // eslint-disable-line

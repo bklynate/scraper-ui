@@ -15,7 +15,7 @@ const config = {
       {
         use: 'babel-loader',
         test: /\.js$/, // this takes a regex to determine what the loader gets applied to..
-        exclude: /node_modules/
+        exclude: /(node_modules|config)/
       },
     ]
   }
