@@ -1,4 +1,4 @@
-const passport = require('passport');
+import passport from 'passport';
 
 module.exports = app => {
   app.get(

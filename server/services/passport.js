@@ -1,12 +1,16 @@
-const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const clientKeys = require("../config/keys");
-const mongoose = require("mongoose");
-const User = mongoose.model("users");
+/* eslint-disable consistent-return */
+
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const clientKeys = require('./../config/keys');
+const mongoose = require('mongoose');
+
+const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
+
 passport.deserializeUser((userID, done) => {
   User.findById(userID).then(foundUser => {
     done(null, foundUser);
@@ -18,7 +22,7 @@ passport.use(
     {
       clientID: clientKeys.googleClientID,
       clientSecret: clientKeys.googleClientSecret,
-      callbackURL: "/auth/google/callback",
+      callbackURL: '/auth/google/callback',
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {

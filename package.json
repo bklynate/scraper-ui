@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "8.11.3",
-    "npm": "5.6.0"
+    "node": "8.11.3"
   },
   "scripts": {
-    "start": "npm run build && node bundle.js",
-    "server": "nodemon index.js --exec babel-node",
-    "build": "rm -rf bundle.js && webpack",
+    "start": "npm run prod:buildserver; node ./server/server-dist/",
+    "server": "nodemon ./server/index.js --exec babel-node",
+    "prod:buildserver": "rm -rf ./server/server-dist && babel ./server -d ./server/server-dist --copy-files",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
@@ -20,9 +19,7 @@
   "dependencies": {
     "aniscrape": "^0.1.1",
     "aniscrape-animebam-https": "^0.1.4",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-react": "6.24.1",
-    "babel-runtime": "^6.26.0",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.0",
     "cookie-session": "^1.3.1",
@@ -38,10 +35,10 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.25.0",
     "babel-eslint": "^8.2.2",
-    "babel-loader": "^7.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "4.9.0",
@@ -52,8 +49,6 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-prettier": "2.3.1",
     "eslint-plugin-react": "^7.5.1",
-    "prettier": "1.7.0",
-    "webpack": "^3.5.6",
-    "webpack-node-externals": "^1.7.2"
+    "prettier": "1.7.0"
   }
 }
