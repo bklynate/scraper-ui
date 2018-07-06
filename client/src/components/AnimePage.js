@@ -24,6 +24,7 @@ class AnimePage extends React.Component {
 
   getVideoSrc(e) {
     const videoSrc = e.currentTarget.attributes[0].textContent;
+    console.log('Here is the videoSrc', videoSrc)
     this.setState(() => ({ videoSrc }));
   }
 
@@ -57,10 +58,10 @@ class AnimePage extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ anime, episodeList}) => {
   return {
-    anime: state.anime,
-    episodeList: state.episodeList,
+    anime,
+    episodeList,
   };
 };
 

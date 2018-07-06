@@ -1,4 +1,21 @@
+.results-list {
+  align-items: center;
+  box-shadow: 2px 3px 9px 3px rgba(0, 0, 0, .2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  max-height: 50vh;
+  overflow: scroll;
+  padding-bottom: 10rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 10rem;
+}
+
 .no-items {
   font-size: $medium-sized;
+  margin: 0;
   text-align: center;
 }

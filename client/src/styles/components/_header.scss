@@ -1,5 +1,8 @@
 .brand-logo {
+  font-weight: 800;
+  letter-spacing: 1rem;
   margin-left: 5%;
+  text-transform: uppercase;
 }
 
 .header-right {
@@ -8,4 +11,7 @@
 
 .header-right > li > a {
   font-size: $medium-sized;
+  font-weight: 500;
+  letter-spacing: -.001rem;
+  text-transform: uppercase;
 }

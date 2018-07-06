@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'production') {
   // the provided routes
   const path = require('path'); // eslint-disable-line
   app.get('*', (request, response) => {
-    response.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    response.sendFile(path.resolve('client', 'build', 'index.html'));
   });
 }
 

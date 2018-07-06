@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "An ES6 server",
   "main": "index.js",
   "engines": {
     "node": "8.11.3"
@@ -12,7 +12,7 @@
     "prod:buildserver": "rm -rf ./server/server-dist && babel ./server -d ./server/server-dist --copy-files",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",

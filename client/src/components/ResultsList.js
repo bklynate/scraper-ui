@@ -5,7 +5,7 @@ import ResultItem from './ResultItem';
 class ResultsList extends React.Component {
   render() {
     return (
-      <div>
+      <div className="results-list">
         {this.props.anime.length ? (
           this.props.anime.map(({ seriesName, seriesUrl }, index) => (
             <ResultItem
@@ -25,7 +25,7 @@ class ResultsList extends React.Component {
 
 const mapStateToProps = ({ anime = [] }) => {
   return {
-    anime
+    anime,
   };
 };
 

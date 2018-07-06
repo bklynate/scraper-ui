@@ -1,4 +1,4 @@
-import Aniscrape from 'aniscrape'; // Check source on GitHub for more info.
+import Aniscrape from 'aniscrape';
 import animebam from 'aniscrape-animebam-https';
 import xr from 'x-ray';
 

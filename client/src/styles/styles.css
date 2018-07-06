@@ -2,7 +2,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   font-size: 1.6rem; }
 
 button {
@@ -12,13 +12,19 @@ button:disabled {
   cursor: default; }
 
 .brand-logo {
-  margin-left: 5%; }
+  font-weight: 800;
+  letter-spacing: 1rem;
+  margin-left: 5%;
+  text-transform: uppercase; }
 
 .header-right {
   margin-right: 5%; }
 
 .header-right > li > a {
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -.001rem;
+  text-transform: uppercase; }
 
 h1 {
   color: pink;
@@ -29,9 +35,25 @@ h1 {
   cursor: pointer; }
 
 .animeForm input[type=text] {
-  font-size: 1.6rem;
-  border-bottom-color: red !important; }
+  border-bottom-color: red !important;
+  font-size: 1.6rem; }
+
+.results-list {
+  align-items: center;
+  box-shadow: 2px 3px 9px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  max-height: 50vh;
+  overflow: scroll;
+  padding-bottom: 10rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 10rem; }
 
 .no-items {
   font-size: 1.6rem;
+  margin: 0;
   text-align: center; }
