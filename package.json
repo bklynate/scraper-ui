@@ -8,11 +8,9 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "start": "npm run build && node server",
+    "start": "npm run build && node bundle.js",
     "server": "nodemon index.js --exec babel-node",
-    "clean": "rm -rf server.js",
-    "build-babel": "babel index.js --out-file server.js",
-    "build": "npm run clean && npm run build-babel",
+    "build": "rm -rf bundle.js && webpack",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
@@ -53,6 +51,7 @@
     "eslint-plugin-prettier": "2.3.1",
     "eslint-plugin-react": "^7.5.1",
     "prettier": "1.7.0",
-    "webpack": "^3.5.6"
+    "webpack": "^3.5.6",
+    "webpack-node-externals": "^1.7.2"
   }
 }
