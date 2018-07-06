@@ -1,10 +1,11 @@
-const Aniscrape = require('aniscrape'); // Check source on GitHub for more info.
-const animebam = require('aniscrape-animebam-https');
-const xray = require('x-ray')();
+import Aniscrape from 'aniscrape'; // Check source on GitHub for more info.
+import animebam from 'aniscrape-animebam-https';
+import xr from 'x-ray';
 
+const xray = xr();
 const scraper = new Aniscrape();
 
-module.exports = app => {
+export default app => {
   app.post('/api/scrapeAnime', (request, response) => {
     const { animeName } = request.body;
     scraper.use(animebam).then(() => {

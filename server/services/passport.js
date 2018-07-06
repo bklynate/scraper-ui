@@ -1,9 +1,9 @@
 /* eslint-disable consistent-return */
 
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const clientKeys = require('./../config/keys');
-const mongoose = require('mongoose');
+import passport from 'passport';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import mongoose from 'mongoose';
+import clientKeys from './../config/keys';
 
 const User = mongoose.model('users');
 

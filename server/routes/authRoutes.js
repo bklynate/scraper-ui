@@ -1,6 +1,6 @@
 import passport from 'passport';
 
-module.exports = app => {
+export default app => {
   app.get(
     '/auth/google',
     passport.authenticate('google', {

@@ -1,5 +1,5 @@
 // Dev.js
-module.exports = {
+export default {
   googleClientID:
     "913553730342-02p5ee75ilgfjjg2jatsjhjlton8ffci.apps.googleusercontent.com",
   googleClientSecret: "wKGCmDWM6Z38fp_u64fzJW1h",
