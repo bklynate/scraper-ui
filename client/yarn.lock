@@ -3375,8 +3375,8 @@ homedir-polyfill@^1.0.1:
     parse-passwd "^1.0.0"
 
 hosted-git-info@^2.1.4:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.1.tgz#6e4cee78b01bb849dcf93527708c69fdbee410df"
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.0.tgz#8aa16a0a8c1381451d967981143d2f1d268f45ec"
 
 hpack.js@^2.1.6:
   version "2.1.6"
