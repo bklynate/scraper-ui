@@ -19,8 +19,7 @@ class AnimePage extends React.Component {
   }
 
   getVideoSrc = (e) => {
-    const videoSrc = e.currentTarget.attributes[0].textContent;
-    console.log('Here is e ::', e.currentTarget)
+    const videoSrc = e.currentTarget.attributes[0].textContent.replace('https://', 'https://www.');
     console.log('here is videoSrc ::', videoSrc);
     this.setState(() => ({ videoSrc }));
   }
