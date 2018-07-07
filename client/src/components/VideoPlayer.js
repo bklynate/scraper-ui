@@ -12,7 +12,7 @@ const VideoPlayer = ({ videoSrc }) => {
         allowFullScreen
       />
     </div>
-  )
+  );
 };
 
 export default VideoPlayer;

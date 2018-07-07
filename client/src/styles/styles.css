@@ -38,8 +38,7 @@ h1 {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 5rem; }
+  justify-content: center; }
 
 .animeForm input[type=text] {
   border-bottom-color: red !important;
@@ -64,3 +63,7 @@ h1 {
   font-size: 1.6rem;
   margin: 0;
   text-align: center; }
+
+.video-container {
+  margin-top: 4rem;
+  margin-bottom: 4rem; }
