@@ -1,5 +1,5 @@
 import React from 'react';
-import Iframe from 'react-iframe';
+import Iframe from 'react-iframe-mod';
 
 const VideoPlayer = ({ videoSrc }) => (
   <div className="video-container">

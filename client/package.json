@@ -26,13 +26,13 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-html5video": "^2.5.1",
-    "react-iframe": "^1.1.0",
+    "react-iframe-mod": "^1.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
-  "devDependencies" : {
+  "devDependencies": {
     "react-scripts": "1.0.13"
   },
   "scripts": {

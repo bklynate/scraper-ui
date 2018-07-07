@@ -5976,9 +5976,9 @@ react-html5video@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-html5video/-/react-html5video-2.5.1.tgz#bbc4314be1d583cb991a11ca3480e70a3c964caf"
 
-react-iframe@^1.1.0:
+react-iframe-mod@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-iframe/-/react-iframe-1.2.0.tgz#c5ce1f21595537f95ff7838288b60d830498b289"
+  resolved "https://registry.yarnpkg.com/react-iframe-mod/-/react-iframe-mod-1.2.0.tgz#2d7726218346cd549bdba0ee0e22aebaaa2a31b4"
 
 react-redux@^5.0.6:
   version "5.0.7"
