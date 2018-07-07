@@ -18,11 +18,13 @@ class AnimePage extends React.Component {
     );
   }
 
-  getVideoSrc = (e) => {
-    const videoSrc = e.currentTarget.attributes[0].textContent.replace('https://', 'https://www.');
-    console.log('here is videoSrc ::', videoSrc);
+  getVideoSrc = e => {
+    const videoSrc = e.currentTarget.attributes[0].textContent.replace(
+      'https://',
+      'https://www.',
+    );
     this.setState(() => ({ videoSrc }));
-  }
+  };
 
   render() {
     let keyCount = 0;
@@ -54,7 +56,7 @@ class AnimePage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ anime, episodeList}) => {
+const mapStateToProps = ({ anime, episodeList }) => {
   return {
     anime,
     episodeList,
