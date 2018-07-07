@@ -3,7 +3,7 @@ import Iframe from 'react-iframe';
 
 const VideoPlayer = ({ videoSrc }) => (
   <div className="video-container">
-    <Iframe width="100%" height="100%" url={videoSrc || ''} allowFullScreen />
+    <Iframe width="100%" height="100%" url={videoSrc || ''} sandbox="allow-same-origin allow-scripts" allowFullScreen />
   </div>
 );
 
