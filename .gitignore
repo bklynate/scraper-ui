@@ -2,6 +2,3 @@ node_modules
 .DS_store
 server/server-dist
 /server/config/dev.js
-server/config/dev.js
-server/config/dev
-server/config/dev.js
