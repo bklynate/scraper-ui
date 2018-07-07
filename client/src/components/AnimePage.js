@@ -5,13 +5,9 @@ import VideoPlayer from './VideoPlayer';
 import * as actions from './../actions';
 
 class AnimePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.getVideoSrc = this.getVideoSrc.bind(this);
-    this.state = {
-      videoSrc: '',
-    };
-  }
+  state = {
+    videoSrc: '',
+  };
 
   async componentDidMount() {
     if (this.props.anime[this.props.match.params.id] === undefined) {
@@ -22,9 +18,10 @@ class AnimePage extends React.Component {
     );
   }
 
-  getVideoSrc(e) {
+  getVideoSrc = (e) => {
     const videoSrc = e.currentTarget.attributes[0].textContent;
-    console.log('Here is the videoSrc', videoSrc)
+    console.log('Here is e ::', e.currentTarget)
+    console.log('here is videoSrc ::', videoSrc);
     this.setState(() => ({ videoSrc }));
   }
 
