@@ -29,6 +29,7 @@
     "nodemon": "^1.12.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "react-spinners": "^0.3.2",
     "x-ray": "^2.3.2"
   },
   "devDependencies": {

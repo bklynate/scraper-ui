@@ -1,56 +1,86 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { BounceLoader } from 'react-spinners';
 import VideoPlayer from './VideoPlayer';
 import * as actions from './../actions';
 
 class AnimePage extends React.Component {
   state = {
     videoSrc: '',
+    loading: true,
   };
 
   async componentDidMount() {
-    if (this.props.anime[this.props.match.params.id] === undefined) {
+    const { id: idx = '' } = this.props.match.params || {};
+    const { anime: animeArray = [] } = this.props;
+    const animeEpisodeToFetch = animeArray[idx];
+
+    if (animeEpisodeToFetch === undefined)
       return <Redirect to="/searchAnime" />;
-    }
-    await this.props.fetchAnimeEpisode(
-      this.props.anime[this.props.match.params.id],
-    );
+
+    await this.props.fetchAnimeEpisode(animeEpisodeToFetch);
   }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return (
+      this.props.episodeList !== nextProps.episodeList ||
+      this.state.videoSrc !== nextState.videoSrc
+    );
+  };
+
+  componentWillReceiveProps = nextProps => {
+    const { episodeList: nextEpisodeList } = nextProps;
+    const { episodeList: currentEpisodeList } = this.props;
+    if (nextEpisodeList !== currentEpisodeList) this.setState({ loading: false });
+  };
 
   getVideoSrc = e => {
     const videoSrc = e.currentTarget.attributes[0].textContent.replace(
       'https://',
       'https://www.',
     );
-    this.setState(() => ({ videoSrc }));
+    this.setState({ videoSrc });
+  };
+
+  renderAnimeTitle = () => {
+    // this pulls the id/index of the animeTitle the user clicked on
+    const { id: idx = '' } = this.props.match.params || {};
+    const { anime: animeArray = [] } = this.props;
+    const { seriesName = '' } = animeArray[idx];
+    return seriesName;
+  };
+
+  renderAnimeEpisodeList = () => {
+    if (this.state.loading) return <BounceLoader size={60} color={'#EC6F75'} />;
+    if (this.props.episodeList.length) {
+      return this.props.episodeList.map((episode, index) => (
+        <div key={index} className="chip">
+          <a value={episode} onClick={this.getVideoSrc}>
+            {`Episode: ${index + 1}`}
+          </a>
+        </div>
+      ));
+    }
   };
 
   render() {
-    let keyCount = 0;
+    const { videoSrc } = this.state;
+    const { id: idx = '' } = this.props.match.params || {};
+    const { anime: animeArray = [] } = this.props;
+    const animeEpisode = animeArray[idx];
     return (
       <div>
-        {this.props.anime[this.props.match.params.id] === undefined ? (
-          <Redirect to="/searchAnime" />
-        ) : (
-          <h1>{this.props.anime[this.props.match.params.id].seriesName}</h1>
-        )}
-        <ul>
-          {this.props.episodeList ? (
-            this.props.episodeList.map(item => {
-              return (
-                <div key={(keyCount += 1)} className="chip">
-                  <a
-                    value={item}
-                    onClick={this.getVideoSrc}>{`Episode ${keyCount}`}</a>
-                </div>
-              );
-            })
-          ) : (
-            <li>Please try searching another anime...</li>
-          )}
-        </ul>
-        <VideoPlayer videoSrc={this.state.videoSrc} />
+        {
+          animeEpisode === undefined
+          ? <Redirect to="/searchAnime" />
+          : <h1>{this.renderAnimeTitle()}</h1>
+        }
+
+        <div className="animePage-list">
+          {this.renderAnimeEpisodeList()}
+        </div>
+        <VideoPlayer videoSrc={videoSrc} />
       </div>
     );
   }
