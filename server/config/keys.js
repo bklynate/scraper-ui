@@ -1,13 +1,8 @@
-/* eslint-disable no-shadow  */
-
-import devKeys from './dev';
-import prodKeys from './prod';
-
-const shouldUseProdKeys = process.env.NODE_ENV === 'production';
-
-const exportKeys = shouldUseProdKeys => {
-  if (shouldUseProdKeys) return prodKeys;
-  return devKeys;
-};
-
-export default exportKeys(shouldUseProdKeys);
+// Keys.js
+if (process.env.NODE_ENV === "production") {
+  // if the environment is production, load prod keys
+  module.exports = require("./prod"); // eslint-disable-line
+} else {
+  // if the environment is development, load dev keys
+  module.exports = require("./dev"); // eslint-disable-line
+}
