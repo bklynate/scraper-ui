@@ -52,9 +52,11 @@ class AnimePage extends React.Component {
   };
 
   renderAnimeEpisodeList = () => {
-    if (this.state.loading) return <BounceLoader size={60} color={'#EC6F75'} />;
-    if (this.props.episodeList.length) {
-      return this.props.episodeList.map((episode, index) => (
+    const { loading } = this.state;
+    const { episodeList = [] } = this.props || {};
+    if (loading) return <BounceLoader size={60} color={'#EC6F75'} />;
+    if (episodeList.length) {
+      return episodeList.map((episode, index) => (
         <div key={index} className="chip">
           <a value={episode} onClick={this.getVideoSrc}>
             {`Episode: ${index + 1}`}
