@@ -6,7 +6,8 @@ A simple React client for a Node scraper that allows you to watch your favorite 
 
 * Provide an ad free viewing experience for all your Anime viewing needs
 * Use a scalable architecture
-* Utilize Node best practices and as much ES6+ as possible!
+* Utilize Node & React best practices!
+* Utilize as much ES6+ as possible!
 * Write easy to follow, human readable code
 
 ### Instructions
