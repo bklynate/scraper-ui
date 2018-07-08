@@ -39,7 +39,8 @@ export default app => {
           })
       );
       Promise.all(embeddedUrls).then(resolvedEmbeddedUrls => {
-        response.send(resolvedEmbeddedUrls);
+        const filteredEmbeddedUrls = resolvedEmbeddedUrls.filter(url => url !== undefined)
+        response.send(filteredEmbeddedUrls);
       });
     });
   });
