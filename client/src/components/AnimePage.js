@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import VideoPlayer from './VideoPlayer';
 import * as actions from './../actions';
 
-class AnimePage extends React.Component {
+class AnimePage extends Component {
   state = {
     videoSrc: '',
     loading: true,

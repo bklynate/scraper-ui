@@ -7,9 +7,8 @@ import * as actions from './../actions';
 import Header from './Header';
 import SearchPage from './SearchPage';
 import AnimePage from './AnimePage';
-import LandingPage from './LandingPage'
-
-const NotFound404 = () => <h2>PAGE NOT FOUND</h2>;
+import LandingPage from './LandingPage';
+import NotFound404 from './NotFound';
 
 class App extends Component {
   componentDidMount() {

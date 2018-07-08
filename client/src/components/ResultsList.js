@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 
 import ResultItem from './ResultItem';
 
-class ResultsList extends React.Component {
+class ResultsList extends Component {
   state = {
     loading: true,
   };
