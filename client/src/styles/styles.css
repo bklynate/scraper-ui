@@ -44,6 +44,9 @@ h1 {
   border-bottom-color: red !important;
   font-size: 1.6rem; }
 
+.search-title {
+  text-align: center; }
+
 .results-list {
   align-items: center;
   box-shadow: 2px 3px 9px 3px rgba(0, 0, 0, 0.2);
