@@ -5,55 +5,35 @@ import { BeatLoader } from 'react-spinners';
 import ResultItem from './ResultItem';
 
 class ResultsList extends Component {
-	state = {
-		loading: false,
-	};
-
-	shouldComponentUpdate = (nextProps, nextState) => {
-		return this.props.anime !== nextProps.anime;
-	};
-
-	componentWillReceiveProps = (nextProps) => {
-		const { anime: nextAnimeList } = nextProps;
-		const { anime: currentAnimeList } = this.props;
-		if (nextAnimeList !== currentAnimeList) this.setState({ loading: false });
-	};
-
-	componentDidUpdate = (prevProps, prevState) => {
-		console.log('inside componentDidUpdate::', prevProps, prevState);
+	renderLoading = () => {
+		return <BeatLoader size={20} margin='20px' color={'#EC6F75'} />;
 	};
 
 	renderResultsList = () => {
-		const { loading } = this.state;
-		this.setState({ loading: true });
-		const { anime: animeArray = [] } = this.props || {};
+		const { loading, animeList = [] } = this.props.data || {};
 
-		if (animeArray.length) {
-			return animeArray.map(({ seriesName, seriesUrl }, index) => (
-				<ResultItem key={index} id={index} seriesName={seriesName} seriesUrl={seriesUrl} />
-			));
+		if (loading) return <BeatLoader size={20} margin={'20px'} color={'#EC6f75'} />;
 
-			if (loading) return <BeatLoader size={20} margin="20px" color={'#EC6F75'} />;
-		}
+		return animeList.map(({ seriesName, seriesUrl }, index) => (
+			<ResultItem key={index} id={index} seriesName={seriesName} seriesUrl={seriesUrl} />
+		));
 	};
 
-	render() {
-		const { loading } = this.state;
-		console.log('loading::', loading);
-		console.log(this.props.anime.length);
+	render () {
+		const { loading, animeList = [] } = this.props.data || {};
 
 		return (
-			<div className="results-list">
-				{this.props.anime.length ? '' : <h3>0 search results...</h3>}
+			<div className='results-list'>
+				{animeList.length || loading ? '' : <h3>0 search results...</h3>}
 				{this.renderResultsList()}
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = ({ anime = [] }) => {
+const mapStateToProps = ({ data = {} }) => {
 	return {
-		anime,
+		data,
 	};
 };
 
