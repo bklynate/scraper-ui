@@ -13,7 +13,6 @@ class ResultsList extends Component {
 		const { loading, animeList = [] } = this.props.data || {};
 
 		if (loading) return <BeatLoader size={20} margin={'20px'} color={'#EC6f75'} />;
-		console.log(animeList, '- here is animeList')
 		return animeList.map(({ seriesName, seriesUrl }, index) => (
 			<ResultItem key={index} id={index} seriesName={seriesName} seriesUrl={seriesUrl} />
 		));
