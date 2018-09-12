@@ -7,6 +7,6 @@ import episodeListReducer from './episodeListReducer';
 
 export default combineReducers({
   auth: authReducer,
-  data: animeReducer,
-  episodeList: episodeListReducer,
+  animeData: animeReducer,
+  episodeListData: episodeListReducer,
 });

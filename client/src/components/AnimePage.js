@@ -13,8 +13,10 @@ class AnimePage extends Component {
 
   async componentDidMount() {
     const { id: idx = '' } = this.props.match.params || {};
-    const { anime: animeArray = [] } = this.props;
-    const animeEpisodeToFetch = animeArray[idx];
+    const { animeList = [] } = this.props.data;
+    console.log('this is animeList::', animeList);
+    const animeEpisodeToFetch = animeList[idx];
+    console.log('this is animeEpisodeToFetch::', animeEpisodeToFetch);
 
     if (animeEpisodeToFetch === undefined)
       return <Redirect to="/searchAnime" />;
@@ -23,15 +25,17 @@ class AnimePage extends Component {
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
+    const { episodeListData: { episodeList: nextEpisodeList = [] } = {} } = nextProps || {}
+    const { episodeListData: { episodeList: currentEpisodeList = [] } = {} } = this.props || {}
     return (
-      this.props.episodeList !== nextProps.episodeList ||
+      currentEpisodeList !== nextEpisodeList ||
       this.state.videoSrc !== nextState.videoSrc
     );
   };
 
   componentWillReceiveProps = nextProps => {
-    const { episodeList: nextEpisodeList } = nextProps;
-    const { episodeList: currentEpisodeList } = this.props;
+    const { episodeListData: { episodeList: nextEpisodeList = [] } = {} } = nextProps || {}
+    const { episodeListData: { episodeList: currentEpisodeList = [] } = {} } = this.props || {}
     if (nextEpisodeList !== currentEpisodeList) this.setState({ loading: false });
   };
 
@@ -46,14 +50,14 @@ class AnimePage extends Component {
   renderAnimeTitle = () => {
     // this pulls the id/index of the animeTitle the user clicked on
     const { id: idx = '' } = this.props.match.params || {};
-    const { anime: animeArray = [] } = this.props;
-    const { seriesName = '' } = animeArray[idx];
+    const { animeList = [] } = this.props.data || {};
+    const { seriesName = '' } = animeList[idx];
     return seriesName;
   };
 
   renderAnimeEpisodeList = () => {
     const { loading } = this.state;
-    const { episodeList = [] } = this.props || {};
+    const { episodeListData: { episodeList = [] } = {} } = this.props || {}
     if (loading) return <BounceLoader size={60} color={'#EC6F75'} />;
     if (episodeList.length) {
       return episodeList.map((episode, index) => (
@@ -69,8 +73,8 @@ class AnimePage extends Component {
   render() {
     const { videoSrc } = this.state;
     const { id: idx = '' } = this.props.match.params || {};
-    const { anime: animeArray = [] } = this.props;
-    const animeEpisode = animeArray[idx];
+    const { animeList = [] } = this.props.data;
+    const animeEpisode = animeList[idx];
     return (
       <div>
         {
@@ -88,10 +92,10 @@ class AnimePage extends Component {
   }
 }
 
-const mapStateToProps = ({ anime, episodeList }) => {
+const mapStateToProps = ({ animeData: data = {}, episodeListData = {} }) => {
   return {
-    anime,
-    episodeList,
+    data,
+    episodeListData,
   };
 };
 

@@ -1,9 +1,17 @@
-import { FETCH_ANIME_EPISODE } from './../actions/types';
+import {
+  FETCH_ANIME_EPISODES_SUCCESS,
+  FETCH_ANIME_EPISODES_START
+} from './../actions/types';
 
-export default function(state = [], action) {
+export default function (state = {
+  loading: false,
+  episodeList: []
+}, action) {
   switch (action.type) {
-    case FETCH_ANIME_EPISODE:
-      return action.payload || false;
+    case FETCH_ANIME_EPISODES_START:
+      return {...state, loading: true }
+    case FETCH_ANIME_EPISODES_SUCCESS:
+      return { ...state, loading: false, episodeList: [...action.payload] }
     default:
       return state;
   }
