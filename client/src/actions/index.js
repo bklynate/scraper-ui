@@ -19,7 +19,6 @@ export const fetchAnime = animeName => async dispatch => {
 };
 
 export const fetchAnimeEpisode = animeEpisode => async dispatch => {
-    console.log(animeEpisode, '- animeEpisode');
     dispatch({ type: FETCH_ANIME_EPISODES_START });
     const { data } = await axios.post('/api/scrapeAnimeEpisode', { animeEpisode });
     dispatch({ type: FETCH_ANIME_EPISODES_SUCCESS, payload: data });
