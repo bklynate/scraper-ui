@@ -3,7 +3,7 @@
   box-shadow: 2px 3px 9px 3px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 4rem;
   margin-top: 4rem;
   width: 100%;
@@ -17,6 +17,14 @@
   text-align: center;
 }
 
+.result-item:first-child {
+  margin-top: 50px;
+}
+
+.result-item:last-child {
+  margin-bottom: 50px;
+}
+
 .result-item {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -24,4 +32,9 @@
   padding-bottom: 5px;
   border-top: 1px dotted #039be5;
   border-bottom: 1px dotted #039be5;
+}
+
+.result-default-message,
+.result-loader {
+  margin-top: 120px;
 }
