@@ -6,16 +6,16 @@ import ResultItem from './ResultItem';
 
 class ResultsList extends Component {
 	renderLoading = () => (
-		<div className="result-loader">
-			<BeatLoader size={20} margin='20px' color={'#EC6F75'} />;
+		<div className='result-loader'>
+			<BeatLoader size={20} margin='20px' color={'#EC6F75'} />
 		</div>
-	)
+	);
 
 	renderDefaultScreen = () => (
-		<div className="result-default-message">
+		<div className='result-default-message'>
 			<h3>0 search results...</h3>
 		</div>
-	)
+	);
 
 	renderResultsList = () => {
 		const { loading, animeList = [] } = this.props.data || {};

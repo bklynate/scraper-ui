@@ -40,7 +40,7 @@ class AnimePage extends Component {
 	};
 
 	renderAnimeEpisodeList = () => {
-		const { loading = false } = this.props.episodeListData || {};
+		const { loading } = this.props.episodeListData || {};
 		const { episodeListData: { episodeList = [] } = {} } = this.props || {};
 
 		if (loading) return <BounceLoader size={60} color={'#EC6F75'} />;

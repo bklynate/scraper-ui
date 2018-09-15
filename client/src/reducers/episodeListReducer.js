@@ -9,7 +9,7 @@ export default function (state = {
 }, action) {
   switch (action.type) {
     case FETCH_ANIME_EPISODES_START:
-      return {...state, loading: true }
+      return {...state, loading: true, episodeList: [] }
     case FETCH_ANIME_EPISODES_SUCCESS:
       return { ...state, loading: false, episodeList: [...action.payload] }
     default:
