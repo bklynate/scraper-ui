@@ -24,11 +24,10 @@ export const fetchAnimeEpisode = animeEpisode => async dispatch => {
 	dispatch({ type: FETCH_ANIME_EPISODES_START });
 	const { data } = await axios.post('/api/scrapeAnimeEpisode', { animeEpisode });
 	dispatch({ type: FETCH_ANIME_EPISODES_SUCCESS, payload: data });
-}
+};
 
 export const fetchPopularAnime = () => async dispatch => {
 	dispatch({ type: FETCH_POPULAR_ANIME_LIST_START });
-    const { data } = await axios.get('/api/popularAnime');
-    console.log('DATA::', data);
+	const { data } = await axios.get('/api/popularAnime');
 	dispatch({ type: FETCH_POPULAR_ANIME_LIST_SUCCESS, payload: data });
 };

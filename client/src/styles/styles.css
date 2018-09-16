@@ -70,11 +70,34 @@ h1 {
   font-weight: 200; }
 
 .landing-anime-selection {
+  padding: 50px 0;
   background-color: #222;
-  margin-top: -27px; }
+  margin-top: -7px; }
 
 .gmail-span {
   color: #bf3b2d; }
+
+.popular-animeList-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between; }
+
+.popular-item-card {
+  flex-basis: 20%;
+  text-align: center; }
+
+.popular-item-title {
+  font-size: 1.3rem;
+  text-align: center;
+  white-space: nowrap;
+  width: 230px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #efefef; }
+
+.popular-item-image {
+  flex-basis: 30px;
+  height: 250px; }
 
 .search-title {
   text-align: center; }

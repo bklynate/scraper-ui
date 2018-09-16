@@ -12,9 +12,10 @@ class AnimePage extends Component {
 
 	async componentDidMount () {
 		const { id: idx = '' } = this.props.match.params || {};
-		const { animeList = [] } = this.props.data || {};
-		const animeEpisodeToFetch = animeList[idx];
-
+		const { animeList = [], popularAnimeList = [] } = this.props.data || {};
+		console.log(this.props.data, idx, 'fafafsd')
+		const animeEpisodeToFetch = animeList[idx] || popularAnimeList[parseInt(idx) - 1];
+		console.log(animeEpisodeToFetch)
 		if (animeEpisodeToFetch === undefined) return <Redirect to='/searchAnime' />;
 
 		await this.props.fetchAnimeEpisode(animeEpisodeToFetch);
@@ -64,6 +65,7 @@ class AnimePage extends Component {
 			<div>
 				{animeEpisode === undefined ? (
 					<Redirect to='/searchAnime' />
+					// console.log(this.props)
 				) : (
 					<h1>{this.renderAnimeTitle()}</h1>
 				)}

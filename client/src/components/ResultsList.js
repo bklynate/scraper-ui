@@ -21,6 +21,7 @@ class ResultsList extends Component {
 		const { loading, animeList = [] } = this.props.data || {};
 
 		if (loading) return this.renderLoading();
+
 		return animeList.map(({ seriesName, seriesUrl }, index) => (
 			<ResultItem key={index} id={index} seriesName={seriesName} seriesUrl={seriesUrl} />
 		));
@@ -28,6 +29,7 @@ class ResultsList extends Component {
 
 	render () {
 		const { loading, animeList = [] } = this.props.data || {};
+
 		return (
 			<div className='results-list'>
 				{animeList.length || loading ? '' : this.renderDefaultScreen()}
