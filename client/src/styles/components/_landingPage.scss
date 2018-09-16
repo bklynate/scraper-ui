@@ -1,0 +1,31 @@
+.landing-intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.landing-intro-section {
+  margin-top: 50px;
+}
+
+.landing-para {
+  flex-basis: 50%;
+}
+
+.landing-image-intro {
+  flex-basis: 45%;
+}
+
+.landing-para p {
+  font-size: 3rem;
+  font-weight: 200;
+}
+
+.landing-anime-selection {
+  background-color: #222;
+  margin-top: -27px;
+}
+
+.gmail-span {
+  color: #bf3b2d;
+}

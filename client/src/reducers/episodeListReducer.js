@@ -1,6 +1,6 @@
 import {
   FETCH_ANIME_EPISODES_SUCCESS,
-  FETCH_ANIME_EPISODES_START
+  FETCH_ANIME_EPISODES_START,
 } from './../actions/types';
 
 export default function (state = {

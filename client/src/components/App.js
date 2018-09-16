@@ -21,7 +21,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-              <div className="container">
+              <div>
                 <Switch>
                   <Route exact path="/" component={LandingPage} />
                   <PrivateRoute exact path="/searchAnime" component={SearchPage} />
