@@ -13,9 +13,18 @@ class AnimePage extends Component {
 	async componentDidMount () {
 		const { id: idx = '' } = this.props.match.params || {};
 		const { animeList = [], popularAnimeList = [] } = this.props.data || {};
-		console.log(this.props.data, idx, 'fafafsd')
-		const animeEpisodeToFetch = animeList[idx] || popularAnimeList[parseInt(idx) - 1];
-		console.log(animeEpisodeToFetch)
+		// console.log(this.props.data, idx, 'fafafsd');
+		// console.log(this.props.data, parseInt(idx), 'fafafsd');
+		// console.log('----------------');
+		if (popularAnimeList[parseInt(idx)]) {
+			popularAnimeList[parseInt(idx)].searchProvider = 'animebam';
+		}
+		// console.log('-------------natenn---------');
+		// console.log(popularAnimeList[parseInt(idx)]);
+		// console.log(animeList[idx]);
+		// console.log('-----------------------------');
+		const animeEpisodeToFetch = animeList[idx] || popularAnimeList[parseInt(idx)];
+		console.log(animeEpisodeToFetch, '- NATEs');
 		if (animeEpisodeToFetch === undefined) return <Redirect to='/searchAnime' />;
 
 		await this.props.fetchAnimeEpisode(animeEpisodeToFetch);
@@ -35,12 +44,13 @@ class AnimePage extends Component {
 	renderAnimeTitle = () => {
 		// this pulls the id/index of the animeTitle the user clicked on
 		const { id: idx = '' } = this.props.match.params || {};
-		const { animeList = [] } = this.props.data || {};
-		const { seriesName = '' } = animeList[idx];
+		const { animeList = [], popularAnimeList = []} = this.props.data || {};
+		const { seriesName = '' } = animeList[idx] || popularAnimeList[parseInt(idx)];
 		return seriesName;
 	};
 
 	renderAnimeEpisodeList = () => {
+		console.log('This is episodeListData', this.props)
 		const { loading } = this.props.episodeListData || {};
 		const { episodeListData: { episodeList = [] } = {} } = this.props || {};
 
@@ -58,15 +68,15 @@ class AnimePage extends Component {
 	render () {
 		const { videoSrc } = this.state;
 		const { id: idx = '' } = this.props.match.params || {};
-		const { animeList = [] } = this.props.data;
-		const animeEpisode = animeList[idx];
+		const { animeList = [], popularAnimeList = [] } = this.props.data;
+		const animeEpisode = animeList[idx] || popularAnimeList[parseInt(idx)];
 
 		return (
-			<div>
+			<div className='container'>
 				{animeEpisode === undefined ? (
 					<Redirect to='/searchAnime' />
-					// console.log(this.props)
 				) : (
+					// console.log(this.props)
 					<h1>{this.renderAnimeTitle()}</h1>
 				)}
 

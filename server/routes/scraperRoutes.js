@@ -18,6 +18,7 @@ export default app => {
 
 	app.post('/api/scrapeAnimeEpisode', (request, response) => {
 		const { animeEpisode = {} } = request.body;
+		console.log('Here is ANIMEEPISODE::::::::', animeEpisode);
 		scraper.fetchSeries(animeEpisode).then(animeData => {
 			const { episodes } = animeData;
 
@@ -49,9 +50,10 @@ export default app => {
 		const popularAnimeList = await xray(
 			'https://www.animebam.net/', // page we are hitting
 			'div.cblock:first-of-type ul.popanime li', // this is the html selector
-			[ // returns an array of objects
+			[
+				// returns an array of objects
 				{
-					title: 'li div.rightpop a', // these are html selectors
+					seriesName: 'li div.rightpop a', // these are html selectors
 					seriesUrl: 'li div.rightpop a@href',
 					imageSrc: 'li div.img img@src',
 					latestEpisode: 'li div.rightpop div a',
@@ -59,6 +61,13 @@ export default app => {
 				},
 			],
 		);
-		response.send(popularAnimeList);
+		const cleanedList = popularAnimeList.reduce((resolved, item) => {
+			item.seriesUrl = item.seriesUrl.replace('https://www.', 'https://'); // eslint-disable-line
+			item.isSpecial = false; // eslint-disable-line
+			resolved.push(item);
+			return resolved;
+		}, []);
+		console.log('here is cleaned list', cleanedList);
+		response.send(cleanedList);
 	});
 };

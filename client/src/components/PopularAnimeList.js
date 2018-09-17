@@ -13,12 +13,12 @@ class PopularAnimeList extends Component {
 		return (
 			<div className='popular-animeList-container'>
 				{this.props.popularAnimeList.map(
-					({ title, imageSrc, latestEpisode, seriesUrl, updated }, index) => {
+					({ seriesName, imageSrc, latestEpisode, seriesUrl, updated }, index) => {
 						return (
 							<PopularAnimeItem
-                key={index}
-                id={index}
-								seriesName={title}
+								key={index}
+								id={index}
+								seriesName={seriesName}
 								imageSrc={imageSrc}
 								latestEpisode={latestEpisode}
 								seriesUrl={seriesUrl}
