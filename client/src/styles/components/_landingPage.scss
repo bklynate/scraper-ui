@@ -24,7 +24,17 @@
 .landing-popular-anime-section {
   padding: 50px 0;
   background-color: #222;
-  margin-top: -7px;
+	margin-top: -7px;
+	
+	.landing-popular-header {
+		color: #efefef;
+		text-align: center;
+		font-weight: 200;
+		text-transform: capitalize;
+		text-decoration: underline;
+		margin-bottom: 50px;
+		opacity: 0.9;
+	}
 }
 
 .landing-end-section {
