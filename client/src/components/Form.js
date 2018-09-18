@@ -28,7 +28,7 @@ class Form extends Component {
 						placeholder='Enter the name of an anime'
 						value={this.state.animeName}
 					/>
-					<button className='waves-effect waves-light btn red'>Search Anime</button>
+					<button className='waves-effect waves-light btn'>Search Anime</button>
 				</form>
 			</div>
 		);

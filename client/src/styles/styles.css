@@ -51,8 +51,16 @@ h1 {
   justify-content: center; }
 
 .animeForm input[type=text] {
-  border-bottom-color: red !important;
+  border-bottom-color: #938e8e !important;
   font-size: 1.6rem; }
+
+.animeForm button {
+  background-color: #222; }
+
+.animeForm button:hover {
+  background-color: #efefef;
+  border: 1px solid #222;
+  color: #222; }
 
 .footer {
   background: #222;
@@ -68,7 +76,8 @@ h1 {
     margin: 0;
     text-transform: capitalize;
     font-size: 1.5rem;
-    font-weight: 200; }
+    font-weight: 200;
+    letter-spacing: -0.5px; }
 
 .landing-intro-section {
   display: flex;
