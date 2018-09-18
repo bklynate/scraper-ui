@@ -119,9 +119,7 @@ h1 {
   font-size: 1.3rem;
   text-align: center;
   white-space: nowrap;
-  width: 230px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: block;
   color: #efefef; }
 
 .popular-item-image {
