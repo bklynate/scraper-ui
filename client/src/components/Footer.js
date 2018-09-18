@@ -4,7 +4,7 @@ const Footer = () => {
 	return (
 		<footer>
 			<div className='footer'>
-				<p>Anify Built with Love, Coded by Designate</p>
+				<p>Anify - Coded with <i class="fal fa-heart"></i> & <i class="fal fa-coffee"></i> by designate</p>
 			</div>
 		</footer>
 	);
