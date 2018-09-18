@@ -19,6 +19,7 @@ const LandingPage = () => (
 		</section>
 
 		<section className='landing-popular-anime-section'>
+			<h3 className='landing-popular-header'>Watch These Trending Anime Without Logging In</h3>
 			<PopularAnimeList />
 		</section>
 
