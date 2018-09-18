@@ -12,13 +12,11 @@
 }
 
 .popular-item-title {
-  font-size: 1.3rem;
-  text-align: center;
-  white-space: nowrap;
-  width: 230px; 
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #efefef;
+	font-size: 1.3rem;
+	text-align: center;
+	white-space: nowrap;
+	display: block;
+	color: #efefef;
 }
 
 .popular-item-image {
