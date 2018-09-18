@@ -21,10 +21,21 @@
   font-weight: 200;
 }
 
-.landing-anime-selection {
+.landing-popular-anime-section {
   padding: 50px 0;
   background-color: #222;
   margin-top: -7px;
+}
+
+.landing-end-section {
+  display: flex;
+  justify-content: center;
+
+  .landing-image-final {
+    flex-basis: 50%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 }
 
 .gmail-span {

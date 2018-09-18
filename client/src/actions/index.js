@@ -16,14 +16,11 @@ export const fetchUser = () => async dispatch => {
 
 export const fetchAnime = animeName => async dispatch => {
 	dispatch({ type: FETCH_ANIME_LIST_START });
-	const { data } = await axios.post('/api/scrapeAnime', { animeName });
+	const { data } = await axios.post('/api/searchAnime', { animeName });
 	dispatch({ type: FETCH_ANIME_LIST_SUCCESS, payload: data });
 };
 
 export const fetchAnimeEpisode = animeEpisode => async dispatch => {
-	console.log('----   DATA    ----')
-	console.log(animeEpisode)
-	console.log('----   DATA    ----')
 	dispatch({ type: FETCH_ANIME_EPISODES_START });
 	const { data } = await axios.post('/api/scrapeAnimeEpisode', { animeEpisode });
 	dispatch({ type: FETCH_ANIME_EPISODES_SUCCESS, payload: data });

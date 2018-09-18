@@ -6,7 +6,7 @@ const xray = xr();
 const scraper = new Aniscrape();
 
 export default app => {
-	app.post('/api/scrapeAnime', (request, response) => {
+	app.post('/api/searchAnime', (request, response) => {
 		const { animeName } = request.body;
 		scraper.use(animebam).then(() => {
 			scraper.search(animeName, 'animebam').then(results => {
@@ -18,7 +18,7 @@ export default app => {
 
 	app.post('/api/scrapeAnimeEpisode', (request, response) => {
 		const { animeEpisode = {} } = request.body;
-		console.log('Here is ANIMEEPISODE::::::::', animeEpisode);
+
 		scraper.fetchSeries(animeEpisode).then(animeData => {
 			const { episodes } = animeData;
 
@@ -47,7 +47,7 @@ export default app => {
 	});
 
 	app.get('/api/popularAnime', async (_, response) => {
-		const popularAnimeList = await xray(
+		const initialPopularAnimeList = await xray(
 			'https://www.animebam.net/', // page we are hitting
 			'div.cblock:first-of-type ul.popanime li', // this is the html selector
 			[
@@ -61,13 +61,16 @@ export default app => {
 				},
 			],
 		);
-		const cleanedList = popularAnimeList.reduce((resolved, item) => {
+
+		const completePopularAnimeList = await initialPopularAnimeList.reduce((resolved, item) => {
 			item.seriesUrl = item.seriesUrl.replace('https://www.', 'https://'); // eslint-disable-line
 			item.isSpecial = false; // eslint-disable-line
+			item.episodes = []; // eslint-disable-line
+			item.searchProvider = 'animebam'; // eslint-disable-line
 			resolved.push(item);
 			return resolved;
 		}, []);
-		console.log('here is cleaned list', cleanedList);
-		response.send(cleanedList);
+
+		response.send(completePopularAnimeList);
 	});
 };

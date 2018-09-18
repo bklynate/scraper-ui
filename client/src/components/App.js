@@ -8,6 +8,7 @@ import Header from './Header';
 import SearchPage from './SearchPage';
 import AnimePage from './AnimePage';
 import LandingPage from './LandingPage';
+import Footer from './Footer';
 import NotFound404 from './NotFound';
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
 								<Route exact path='*' component={NotFound404} />
 							</Switch>
 						</div>
+						<Footer />
 					</div>
 				</BrowserRouter>
 			</div>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import luffyImage from '../assets/images/luffy.png';
+import dekuImage from '../assets/images/deku.png';
 import PopularAnimeList from './PopularAnimeList';
 
 const LandingPage = () => (
@@ -13,12 +14,18 @@ const LandingPage = () => (
 				</p>
 			</div>
 			<div className='landing-image-intro'>
-				<img src={luffyImage} className='anime-image' alt='luffy character' />
+				<img src={luffyImage} className='anime-image' alt='anime character luffy' />
 			</div>
 		</section>
 
-		<section className='landing-anime-selection'>
+		<section className='landing-popular-anime-section'>
 			<PopularAnimeList />
+		</section>
+
+		<section className='landing-end-section'>
+			<div className='landing-image-final'>
+				<img src={dekuImage} alt='anime character deku' />
+			</div>
 		</section>
 	</div>
 );
