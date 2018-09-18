@@ -5,7 +5,7 @@ import * as actions from './../actions';
 import PopularAnimeItem from './PopularAnimeItem';
 
 class PopularAnimeList extends Component {
-	componentWillMount = async () => {
+	componentDidMount = async () => {
 		await this.props.fetchPopularAnime();
 	};
 
