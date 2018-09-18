@@ -110,7 +110,9 @@ h1 {
   justify-content: space-between; }
 
 .popular-item-card {
+  display: flex;
   flex-basis: 20%;
+  justify-content: center;
   text-align: center; }
 
 .popular-item-title {

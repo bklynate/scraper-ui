@@ -5,8 +5,10 @@
 }
 
 .popular-item-card {
-  flex-basis: 20%;
-  text-align: center;
+	display: flex;
+	flex-basis: 20%;
+	justify-content: center;
+	text-align: center;
 }
 
 .popular-item-title {
