@@ -51,6 +51,18 @@ h1 {
   border-bottom-color: red !important;
   font-size: 1.6rem; }
 
+.footer {
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: -6px; }
+  .footer p {
+    color: #efefef;
+    margin: 0; }
+
 .landing-intro-section {
   display: flex;
   align-items: center;
@@ -79,8 +91,7 @@ h1 {
   justify-content: center; }
   .landing-end-section .landing-image-final {
     flex-basis: 50%;
-    margin-top: 50px;
-    margin-bottom: 50px; }
+    margin-top: 50px; }
 
 .gmail-span {
   color: #bf3b2d; }
