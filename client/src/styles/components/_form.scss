@@ -1,17 +1,16 @@
 .animeForm {
-	input[type=text] {
-		border-bottom-color: #938e8e !important;
-		font-size: $medium-sized;
-	}
+  input[type="text"] {
+    border-bottom-color: #938e8e !important;
+    font-size: $medium-sized;
+  }
 
-	button {
-		background-color: #222;
-	}
+  button {
+    background-color: #222;
+  }
 
-	button:hover {
-		background-color: #efefef;
-		border: 1px solid #222;
-		color: #222;
-	}
+  button:hover {
+    background-color: #efefef;
+    border: 1px solid #222;
+    color: #222;
+  }
 }
-

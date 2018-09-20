@@ -18,10 +18,10 @@ require('./services/passport');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000,
+		keys: [ keys.cookieKey ],
+	}),
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -30,16 +30,16 @@ authRoutes(app);
 scraperRoutes(app);
 
 if (process.env.NODE_ENV === 'production') {
-  // Express serves up production build assets
-  app.use(express.static('client/build'));
+	// Express serves up production build assets
+	app.use(express.static('client/build'));
 
-  // This below informs Express to serve up
-  // the index.html file if it doesn't recognize
-  // the provided routes
-  const path = require('path'); // eslint-disable-line
-  app.get('*', (request, response) => {
-    response.sendFile(path.resolve('client', 'build', 'index.html'));
-  });
+	// This below informs Express to serve up
+	// the index.html file if it doesn't recognize
+	// the provided routes
+	const path = require('path'); // eslint-disable-line
+	app.get('*', (request, response) => {
+		response.sendFile(path.resolve('client', 'build', 'index.html'));
+	});
 }
 
 app.listen(PORT, () => console.log(`They came from PORT[${PORT}]`)); // eslint-disable-line

@@ -2,7 +2,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   display: flex;
   min-height: 100vh;
@@ -32,7 +32,7 @@ nav {
 .header-right > li > a {
   font-size: 1.6rem;
   font-weight: 500;
-  letter-spacing: -.001rem;
+  letter-spacing: -0.001rem;
   text-transform: uppercase;
   color: #222; }
 
@@ -50,7 +50,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center; }
 
-.animeForm input[type=text] {
+.animeForm input[type="text"] {
   border-bottom-color: #938e8e !important;
   font-size: 1.6rem; }
 
