@@ -85,7 +85,11 @@ h1 {
   justify-content: space-around; }
 
 .landing-intro-section {
-  margin-top: 50px; }
+  margin-top: 50px;
+  margin-bottom: 18px; }
+  @media (min-width: 1020px) {
+    .landing-intro-section {
+      margin-bottom: 0; } }
 
 .landing-para {
   flex-basis: 50%; }
@@ -94,13 +98,22 @@ h1 {
   flex-basis: 45%; }
 
 .landing-para p {
-  font-size: 3rem;
+  font-size: 1.1rem;
   font-weight: 200; }
+  @media (min-width: 760px) {
+    .landing-para p {
+      font-size: 2.5rem; } }
+  @media (min-width: 1020px) {
+    .landing-para p {
+      font-size: 3rem; } }
 
 .landing-popular-anime-section {
   padding: 50px 0;
   background-color: #222;
-  margin-top: -7px; }
+  margin-top: -25px; }
+  @media (min-width: 1020px) {
+    .landing-popular-anime-section {
+      margin-top: -7px; } }
   .landing-popular-anime-section .landing-popular-header {
     color: #efefef;
     text-align: center;
@@ -108,7 +121,11 @@ h1 {
     text-transform: capitalize;
     text-decoration: underline;
     margin-bottom: 50px;
-    opacity: 0.9; }
+    opacity: 0.9;
+    font-size: 1.4rem; }
+    @media (min-width: 760px) {
+      .landing-popular-anime-section .landing-popular-header {
+        font-size: 2.92rem; } }
 
 .landing-end-section {
   display: flex;
@@ -124,16 +141,24 @@ h1 {
 .popular-animeList-container {
   display: flex;
   align-items: baseline;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
 
 .popular-item-card {
   display: flex;
-  flex-basis: 20%;
+  flex-basis: 48%;
   justify-content: center;
-  text-align: center; }
+  text-align: center;
+  flex-wrap: wrap; }
+  @media (min-width: 760px) {
+    .popular-item-card {
+      flex-basis: 50%; } }
+  @media (min-width: 1020px) {
+    .popular-item-card {
+      flex-basis: 20%; } }
 
 .popular-item-title {
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-align: center;
   white-space: nowrap;
   display: block;

@@ -5,7 +5,7 @@ const Footer = () => {
 		<footer>
 			<div className='footer'>
 				<p>
-					Anify - Coded with <i class='fal fa-heart' /> & <i class='fal fa-coffee' /> by designate
+					Anify - Coded with <i className='fal fa-heart' /> & <i className='fal fa-coffee' /> by designate
 				</p>
 			</div>
 		</footer>

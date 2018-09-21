@@ -6,6 +6,11 @@
 
 .landing-intro-section {
   margin-top: 50px;
+  margin-bottom: 18px;
+  
+  @include minWidth(small-desktop) {
+    margin-bottom: 0;
+  }
 }
 
 .landing-para {
@@ -17,14 +22,26 @@
 }
 
 .landing-para p {
-  font-size: 3rem;
+  font-size: 1.1rem;
   font-weight: 200;
+
+  @include minWidth(tablet) {
+    font-size: 2.5rem;
+  }
+
+  @include minWidth(small-desktop) {
+    font-size: 3rem;
+  }
 }
 
 .landing-popular-anime-section {
   padding: 50px 0;
   background-color: #222;
-  margin-top: -7px;
+  margin-top: -25px;
+
+  @include minWidth(small-desktop) {
+    margin-top: -7px;
+  }
 
   .landing-popular-header {
     color: #efefef;
@@ -34,6 +51,11 @@
     text-decoration: underline;
     margin-bottom: 50px;
     opacity: 0.9;
+    font-size: 1.4rem;
+
+    @include minWidth(tablet) {
+      font-size: 2.92rem;
+    }
   }
 }
 
