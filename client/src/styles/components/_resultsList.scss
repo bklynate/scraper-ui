@@ -30,10 +30,12 @@
   margin-bottom: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-top: 1px dotted #039be5;
-  border-bottom: 1px dotted #039be5;
+  border-top: 1px dotted #999;
+  border-bottom: 1px dotted #999;
 
   a {
+    color: #222;
+
     h4 {
       font-size: 1.5rem;
       text-align: center;

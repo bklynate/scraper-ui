@@ -201,14 +201,16 @@ h1 {
   margin-bottom: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-top: 1px dotted #039be5;
-  border-bottom: 1px dotted #039be5; }
-  .result-item a h4 {
-    font-size: 1.5rem;
-    text-align: center; }
-    @media (min-width: 760px) {
-      .result-item a h4 {
-        font-size: 2.28rem; } }
+  border-top: 1px dotted #999;
+  border-bottom: 1px dotted #999; }
+  .result-item a {
+    color: #222; }
+    .result-item a h4 {
+      font-size: 1.5rem;
+      text-align: center; }
+      @media (min-width: 760px) {
+        .result-item a h4 {
+          font-size: 2.28rem; } }
 
 .result-default-message,
 .result-loader {
