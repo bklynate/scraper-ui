@@ -10,13 +10,14 @@ class PopularAnimeItem extends Component {
 	};
 
 	render () {
-		const { id, seriesName, imageSrc, latestEpisode, updated } = this.props;
+		const { seriesName, imageSrc, latestEpisode, updated } = this.props;
 		return (
 			<div className='popular-item-card' onClick={this.handleOnClick}>
-				<Link to={`/view/${id}`}>
+				<Link to={`/video/${seriesName}`}>
 					<p className='popular-item-title'>{seriesName}</p>
 					<img src={imageSrc} className='popular-item-image' />
 					<p className='popular-item-latestEpisode'>{latestEpisode}</p>
+					<p className='popular-item-lastUpdated'>last updated: {updated}</p>
 				</Link>
 			</div>
 		);

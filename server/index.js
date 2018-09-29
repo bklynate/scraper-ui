@@ -25,7 +25,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-mongoose.connect(mongoUrl);
+mongoose.Promise = global.Promise;
+mongoose.connect(mongoUrl, { useMongoClient: true } );
 authRoutes(app);
 scraperRoutes(app);
 

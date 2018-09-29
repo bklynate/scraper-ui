@@ -11,12 +11,14 @@ class AnimePage extends Component {
 	};
 
 	async componentDidMount () {
-		const { id: idx = '' } = this.props.match.params || {};
-		const { animeList = [], popularAnimeList = [] } = this.props.data || {};
-		const animeEpisodeToFetch = animeList[idx] || popularAnimeList[parseInt(idx)];
-
-		if (animeEpisodeToFetch === undefined) return <Redirect to='/searchAnime' />;
-
+		const animeEpisodeToFetch = this.getAnimeEpisodeToFetch();
+		if (
+			Object.keys(animeEpisodeToFetch).length === 0 &&
+			animeEpisodeToFetch.constructor === Object
+		) {
+			const { history } = this.props;
+			return history.push('/searchAnime');
+		}
 		await this.props.fetchAnimeEpisode(animeEpisodeToFetch);
 	}
 
@@ -31,11 +33,19 @@ class AnimePage extends Component {
 		this.setState({ videoSrc });
 	};
 
-	renderAnimeTitle = () => {
-		// this pulls the id/index of the animeTitle the user clicked on
-		const { id: idx = '' } = this.props.match.params || {};
-		const { animeList = [], popularAnimeList = [] } = this.props.data || {};
-		const { seriesName = '' } = animeList[idx] || popularAnimeList[parseInt(idx)];
+	getAnimeEpisodeToFetch = () => {
+		const { animeList = [], popularAnimeList = [] } = this.props.data;
+		const [ searchedAnimeEpisode = {} ] = animeList.filter(this.findAnimeEpisode);
+		const [ popularAnimeListEpisode = {} ] = popularAnimeList.filter(this.findAnimeEpisode);
+		return searchedAnimeEpisode.seriesName ? searchedAnimeEpisode : popularAnimeListEpisode;
+	};
+
+	findAnimeEpisode = ({ seriesName }) => {
+		const { seriesName: seriesNameParam = '' } = this.props.match.params || {};
+		return seriesName === seriesNameParam;
+	};
+
+	renderAnimeTitle = ({ seriesName = '' }) => {
 		return seriesName;
 	};
 
@@ -56,16 +66,14 @@ class AnimePage extends Component {
 
 	render () {
 		const { videoSrc } = this.state;
-		const { id: idx = '' } = this.props.match.params || {};
-		const { animeList = [], popularAnimeList = [] } = this.props.data;
-		const animeEpisode = animeList[idx] || popularAnimeList[parseInt(idx)];
+		const animeEpisode = this.getAnimeEpisodeToFetch();
 
 		return (
 			<div className='container'>
 				{animeEpisode === undefined ? (
 					<Redirect to='/searchAnime' />
 				) : (
-					<h1>{this.renderAnimeTitle()}</h1>
+					<h1>{this.renderAnimeTitle(animeEpisode)}</h1>
 				)}
 
 				<div className='animePage-list'>{this.renderAnimeEpisodeList()}</div>

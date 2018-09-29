@@ -168,6 +168,13 @@ h1 {
   flex-basis: 30px;
   height: 250px; }
 
+.popular-item-latestEpisode {
+  margin-bottom: 10px; }
+
+.popular-item-lastUpdated {
+  font-size: 10px;
+  text-transform: capitalize; }
+
 .search-container {
   margin-bottom: 50px; }
   .search-container .search-title {
