@@ -10,7 +10,7 @@ export default app => {
 		const { animeName } = request.body;
 		scraper.use(animebam).then(() => {
 			scraper.search(animeName, 'animebam').then(results => {
-				if (results.length === 0) return response.send([]);
+        if (results.length === 0) return response.send([]);
 				return response.send(results); // eslint-disable-line
 			});
 		});

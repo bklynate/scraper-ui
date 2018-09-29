@@ -8,10 +8,10 @@
   },
   "scripts": {
     "start": "npm run prod:buildserver; node ./server/server-dist/",
-    "server": "nodemon ./server/index.js --exec babel-node",
+    "server": "nodemon --exec babel-node ./server/index.js",
     "prod:buildserver": "rm -rf ./server/server-dist && babel ./server -d ./server/server-dist --copy-files",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently --raw --kill-others \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "",

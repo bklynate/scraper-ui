@@ -39,10 +39,6 @@ class ResultsList extends Component {
 	}
 }
 
-const mapStateToProps = ({ animeData: data = {} }) => {
-	return {
-		data,
-	};
-};
+const mapStateToProps = ({ animeData: data = {} }) => ({ data });
 
 export default connect(mapStateToProps)(ResultsList);

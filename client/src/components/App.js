@@ -26,7 +26,7 @@ class App extends Component {
 							<Switch>
 								<Route exact path='/' component={LandingPage} />
 								<PrivateRoute exact path='/searchAnime' component={SearchPage} />
-								<Route path='/view/:id' component={AnimePage} />
+								<Route path='/video/:seriesName' component={AnimePage} />
 								<Route exact path='*' component={NotFound404} />
 							</Switch>
 						</div>
