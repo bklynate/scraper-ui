@@ -50,6 +50,9 @@ h1 {
   flex-wrap: wrap;
   justify-content: center; }
 
+.animePage-title {
+  color: #222; }
+
 .animeForm input[type="text"] {
   border-bottom-color: #938e8e !important;
   font-size: 1.6rem; }

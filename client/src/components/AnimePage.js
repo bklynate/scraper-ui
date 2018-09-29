@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { BounceLoader } from 'react-spinners';
+import { PacmanLoader } from 'react-spinners';
 import VideoPlayer from './VideoPlayer';
 import * as actions from './../actions';
 
@@ -20,7 +20,9 @@ class AnimePage extends Component {
 			return history.push('/searchAnime');
 		}
 		await this.props.fetchAnimeEpisode(animeEpisodeToFetch);
-	}
+  }
+  
+  renderLoading = () => <PacmanLoader size={25} margin='2px' color={'#222'} />
 
 	shouldComponentUpdate = (nextProps, nextState) => {
 		const { episodeListData: { episodeList: nextEpisodeList = [] } = {} } = nextProps || {};
@@ -53,7 +55,7 @@ class AnimePage extends Component {
 		const { loading } = this.props.episodeListData || {};
 		const { episodeListData: { episodeList = [] } = {} } = this.props || {};
 
-		if (loading) return <BounceLoader size={60} color={'#EC6F75'} />;
+		if (loading) return this.renderLoading();
 
 		return episodeList.map((episode, index) => (
 			<div key={index} className='chip'>
@@ -73,7 +75,7 @@ class AnimePage extends Component {
 				{animeEpisode === undefined ? (
 					<Redirect to='/searchAnime' />
 				) : (
-					<h1>{this.renderAnimeTitle(animeEpisode)}</h1>
+					<h1 className='animePage-title'>{this.renderAnimeTitle(animeEpisode)}</h1>
 				)}
 
 				<div className='animePage-list'>{this.renderAnimeEpisodeList()}</div>
@@ -83,11 +85,9 @@ class AnimePage extends Component {
 	}
 }
 
-const mapStateToProps = ({ animeData: data = {}, episodeListData = {} }) => {
-	return {
-		data,
-		episodeListData,
-	};
-};
+const mapStateToProps = ({ animeData: data = {}, episodeListData = {} }) => ({
+	data,
+	episodeListData,
+});
 
 export default connect(mapStateToProps, actions)(AnimePage);

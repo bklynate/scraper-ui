@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BeatLoader } from 'react-spinners';
+import { ClimbingBoxLoader } from 'react-spinners';
 
 import ResultItem from './ResultItem';
 
 class ResultsList extends Component {
 	renderLoading = () => (
 		<div className='result-loader'>
-			<BeatLoader size={20} margin='20px' color={'#EC6F75'} />
+			<ClimbingBoxLoader size={20} margin='20px' color={'#222'} />
 		</div>
 	);
 
