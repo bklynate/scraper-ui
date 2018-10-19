@@ -3,10 +3,12 @@ import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
 import passport from 'passport';
 import mongoose from 'mongoose';
-
+import GraphQLHTTP from 'express-graphql';
+import cors from 'cors';  
 import authRoutes from './routes/authRoutes';
 import scraperRoutes from './routes/scraperRoutes';
 import keys from './config/keys';
+import Schema from './schema';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,6 +17,7 @@ const mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/anify_db';
 require('./models/User');
 require('./services/passport');
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
@@ -25,6 +28,11 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/graphiql', GraphQLHTTP({
+  schema: Schema,
+  pretty: true,
+  graphiql: true,
+}));
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoUrl, { useMongoClient: true } );
 authRoutes(app);
